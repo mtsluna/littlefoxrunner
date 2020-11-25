@@ -9,7 +9,7 @@ public class scene : MonoBehaviour
 
     public GameObject jugador;
     public Camera camara;
-
+    public static int scorePlus = 0;
     public GameObject[] bloques;
     public GameObject[] fondos;
     public float puntero;
@@ -31,13 +31,14 @@ public class scene : MonoBehaviour
     {
         if(jugador != null)
         {
+            
             scoreGuardado = System.Convert.ToInt32(Mathf.Floor(jugador.transform.position.x - 10));
             camara.transform.position = new Vector3(
                 jugador.transform.position.x,
                 camara.transform.position.y,
                 camara.transform.position.z
             );
-            score.text = "score: " + scoreGuardado;
+            score.text = "score: " + (scoreGuardado + scorePlus);
         }
         else if(!derrota) {
             derrota = true;

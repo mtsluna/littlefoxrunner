@@ -60,6 +60,11 @@ public class player : MonoBehaviour
             muerto = true;            
             //GameObject.Destroy(this.gameObject);
         }
+        if (collition.tag == "gem")
+        {
+            scene.scorePlus += 70;
+            Destroy(GameObject.FindWithTag("gem"));
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collition)
